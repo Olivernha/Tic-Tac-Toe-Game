@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Button from "./util-components/Button";
 import style from "./OverlayGameForm.module.css";
 const Backdrop = () => {
   return <div className={style.backdrop} />;
@@ -17,12 +18,12 @@ const OverlayGameForm = () => {
             <input type="text" name="playername" id="playername" />
           </div>
           <div>
-            <button type="button" className="btn btn-alt">
+            <Button type="button" className="btn btn-alt">
               Cancel
-            </button>
-            <button type="submit" className="btn">
+            </Button>
+            <Button type="submit" className="btn">
               Confirm
-            </button>
+            </Button>
           </div>
         </form>
       </aside>
