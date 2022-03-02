@@ -1,6 +1,9 @@
 import React from "react";
 import classes from './ActiveGame.module.css';
-const ActiveGame = () => {
+const ActiveGame = ({startNewGame}) => {
+  if(!startNewGame){
+    return null;
+  }
   return (
     <section className={classes['active-game']}>
     <article className={classes['game-over']}>

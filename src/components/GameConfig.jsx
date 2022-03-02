@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import classes from "./GameConfig.module.css";
 import Button from "./util-components/Button";
-const GameConfig = ({isOpen,setModal,player1Data,editPlayer,setEditPlayer,player2Data ,setPlayer2Data ,setPlayer1Data}) => {
+const GameConfig = ({isOpen,setModal,player1Data,startNewGame,setStartNewGame,setEditPlayer,player2Data ,setPlayer2Data ,setPlayer1Data}) => {
   const player1Handler = () =>{
     setModal(!isOpen);
     setEditPlayer('player1');
@@ -33,7 +33,13 @@ const GameConfig = ({isOpen,setModal,player1Data,editPlayer,setEditPlayer,player
           </article>
         </li>
       </ol>
-      <Button id="start-game-btn">
+      <Button id="start-game-btn" onClick={()=>{
+        if(!player1Data.name || !player2Data.name){
+          alert('Please enter custom player names for both players!');
+          return;
+        }
+        setStartNewGame(true);
+      }}>
         Start New Game
       </Button>
     </section>

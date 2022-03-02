@@ -26,7 +26,7 @@ const OverlayGameForm = ({
       setPlayName("");
     };
   }, [isOpen,editPlayer]);
-  if (!isOpen) return null;
+
 
   const toggleModalHandler = () => {
     setModal(!isOpen);
@@ -57,6 +57,7 @@ const OverlayGameForm = ({
     }
     setModal(!isOpen);
   };
+  if (!isOpen) return null;
   return (
     <>
       {ReactDOM.createPortal(

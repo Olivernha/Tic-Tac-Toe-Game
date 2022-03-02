@@ -6,9 +6,10 @@ import OverlayGameForm from "./components/OverlayGameForm";
 import { useState } from "react";
 
 function App() {
-  console.log('App')
+  console.log("App");
   const [openModal, setOpenModal] = useState(false);
-  const [editPlayer, setEditPlayer] = useState('');
+  const [editPlayer, setEditPlayer] = useState("");
+  const [startNewGame, setStartNewGame] = useState(false);
   const [player1Data, setPlayer1Data] = useState({
     name: "",
     symbol: "X",
@@ -40,8 +41,10 @@ function App() {
           player2Data={player2Data}
           setPlayer1Data={setPlayer1Data}
           setPlayer2Data={setPlayer2Data}
+          setStartNewGame={setStartNewGame}
+          startNewGame={startNewGame}
         />
-        <ActiveGame />
+        <ActiveGame startNewGame={startNewGame}/>
       </>
     </>
   );
