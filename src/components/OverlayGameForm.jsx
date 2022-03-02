@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import Button from "./util-components/Button";
 import style from "./OverlayGameForm.module.css";
@@ -6,14 +6,31 @@ const Backdrop = (props) => {
   return <div className={style.backdrop} onClick={props.onClick} />;
 };
 
-const OverlayGameForm = ({ isOpen, setModal }) => {
-  const [playName, setPlayName] = useState("");
+const OverlayGameForm = ({
+  isOpen,
+  setModal,
+  editPlayer,
+  player1Data,
+  player2Data,
+  setPlayer2Data,
+  setPlayer1Data,
+}) => {
+  const [playName, setPlayName] = useState(editPlayer === 'player1' ? player1Data.name : player2Data.name);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    console.log("useEffect");
+    setPlayName(editPlayer === 'player1' ? player1Data.name : player2Data.name);
+    return () => {
+      console.log("cleanup");
+      setPlayName("");
+    };
+  }, [isOpen,editPlayer]);
   if (!isOpen) return null;
 
   const toggleModalHandler = () => {
     setModal(!isOpen);
-    if(!error){
+    if (!error) {
       return;
     }
     setPlayName("");
@@ -26,7 +43,19 @@ const OverlayGameForm = ({ isOpen, setModal }) => {
       setError("Please enter a valid name");
       return;
     }
-    console.log(enteredPlayerName);
+
+    if (editPlayer === "player1") {
+      setPlayer1Data({
+        ...player1Data,
+        name: enteredPlayerName,
+      });
+    } else {
+      setPlayer2Data({
+        ...player2Data,
+        name: enteredPlayerName,
+      });
+    }
+    setModal(!isOpen);
   };
   return (
     <>
@@ -40,7 +69,9 @@ const OverlayGameForm = ({ isOpen, setModal }) => {
           <form onSubmit={submitHandler}>
             <div
               className={
-                error ? `${style['form-control']} ${style.error}` : style["form-control"]
+                error
+                  ? `${style["form-control"]} ${style.error}`
+                  : style["form-control"]
               }
             >
               <label htmlFor="playername">Player name</label>
