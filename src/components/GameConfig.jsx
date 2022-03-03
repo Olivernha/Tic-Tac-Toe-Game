@@ -34,10 +34,10 @@ const GameConfig = ({isOpen,setModal,player1Data,startNewGame,setStartNewGame,se
         </li>
       </ol>
       <Button id="start-game-btn" onClick={()=>{
-        if(!player1Data.name || !player2Data.name){
-          alert('Please enter custom player names for both players!');
-          return;
-        }
+        // if(!player1Data.name || !player2Data.name){
+        //   alert('Please enter custom player names for both players!');
+        //   return;
+        // }
         setStartNewGame(true);
       }}>
         Start New Game

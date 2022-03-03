@@ -44,7 +44,11 @@ function App() {
           setStartNewGame={setStartNewGame}
           startNewGame={startNewGame}
         />
-        <ActiveGame startNewGame={startNewGame}/>
+        <ActiveGame
+          startNewGame={startNewGame}
+          player1Data={player1Data}
+          player2Data={player2Data}
+        />
       </>
     </>
   );
