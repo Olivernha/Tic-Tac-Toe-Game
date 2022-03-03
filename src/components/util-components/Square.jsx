@@ -4,7 +4,7 @@ const Square = ({ value, onClick }) => {
     const style = value ? `disabled` : ``;
 
     return (
-        <li  onClick={onClick} className={style}>
+        <li  onClick={onClick} className={style} >
             {value}
         </li>
     );

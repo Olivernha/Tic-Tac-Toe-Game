@@ -10,6 +10,8 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   const [editPlayer, setEditPlayer] = useState("");
   const [startNewGame, setStartNewGame] = useState(false);
+  const [winner, setWinner] = useState("");
+  const [round, setRound] = useState(0);
   const [player1Data, setPlayer1Data] = useState({
     name: "",
     symbol: "X",
@@ -43,11 +45,18 @@ function App() {
           setPlayer2Data={setPlayer2Data}
           setStartNewGame={setStartNewGame}
           startNewGame={startNewGame}
+          winner={winner}
+          setWinner={setWinner}
+          setRound={setRound}
         />
         <ActiveGame
           startNewGame={startNewGame}
           player1Data={player1Data}
           player2Data={player2Data}
+          winner={winner}
+          setWinner={setWinner}
+          round={round}
+          setRound={setRound}
         />
       </>
     </>
