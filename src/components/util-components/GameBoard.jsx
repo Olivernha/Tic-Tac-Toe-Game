@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./GameBoard.css";
 import Square from "./Square";
 
@@ -29,7 +29,7 @@ const GameBoard = ({setActive ,setWinner,setRound ,winner}) => {
         [2, 4, 6],
       ],
     };
-
+    console.log(squares)
     for (let combo in combos) {
 
       combos[combo].forEach((pattern) => {

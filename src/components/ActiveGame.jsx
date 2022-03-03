@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import classes from "./ActiveGame.module.css";
 import GameBoard from "./util-components/GameBoard";
 const ActiveGame = ({ startNewGame, player1Data, player2Data ,setWinner,winner ,round ,setRound}) => {
